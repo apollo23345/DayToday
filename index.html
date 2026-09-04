@@ -113,77 +113,87 @@ function playAudio() {
 
 // Start audio as soon as the user clicks anywhere on the page
 document.addEventListener('click', playAudio, { once: true });  
-        function openGroupPictureWindow() {
-            var myWindow = window.open("", "_blank", "width=800, height=650");
+function openGroupPictureWindow() {
+    var myWindow = window.open("", "_blank", "width=850, height=700");
 
-            var imageNames = [
-                "Apollo_w_tie.png",
-                "DelaCruz.png",
-                "Garcia.JPG",
-                "Marquez.png",
-                "Pili.png"
-            ];
+    // Array holding image filenames and their corresponding display names
+    var members = [
+        { file: "Apollo_w_tie.png", name: "Apollo" },
+        { file: "DelaCruz.png",     name: "Dela Cruz" },
+        { file: "Garcia.JPG",       name: "Garcia" },
+        { file: "Marquez.png",      name: "Marquez" },
+        { file: "Pili.png",         name: "Pili" }
+    ];
 
-            var popUpHTML = `
-                <html>
-                <head>
-                    <title>Group Members</title>
-                    <style>
-                        body {
-                            font-family: 'Segoe UI', sans-serif;
-                            background-color: #0f172a;
-                            color: #f8fafc;
-                            margin: 0;
-                            padding: 20px;
-                            text-align: center;
-                        }
-                        h3 {
-                            color: #38bdf8;
-                            margin-bottom: 20px;
-                            font-size: 1.5rem;
-                        }
-                        .grid {
-                            display: flex;
-                            flex-wrap: wrap;
-                            justify-content: center;
-                            gap: 15px;
-                        }
-                        .card {
-                            background: #1e293b;
-                            padding: 10px;
-                            border-radius: 12px;
-                            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-                            transition: transform 0.2s;
-                        }
-                        .card:hover {
-                            transform: translateY(-4px);
-                        }
-                        img {
-                            width: 200px;
-                            height: 220px;
-                            object-fit: cover;
-                            border-radius: 8px;
-                            display: block;
-                        }
-                    </style>
-                </head>
-                <body>
-                    <h3>Group Members</h3>
-                    <div class="grid">
-            `;
+    var popUpHTML = `
+        <html>
+        <head>
+            <title>Group Members</title>
+            <style>
+                body {
+                    font-family: 'Segoe UI', sans-serif;
+                    background-color: #0f172a;
+                    color: #f8fafc;
+                    margin: 0;
+                    padding: 20px;
+                    text-align: center;
+                }
+                h3 {
+                    color: #38bdf8;
+                    margin-bottom: 20px;
+                    font-size: 1.5rem;
+                }
+                .grid {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 15px;
+                }
+                .card {
+                    background: #1e293b;
+                    padding: 12px;
+                    border-radius: 12px;
+                    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+                    transition: transform 0.2s;
+                    width: 200px;
+                }
+                .card:hover {
+                    transform: translateY(-4px);
+                }
+                img {
+                    width: 100%;
+                    height: 220px;
+                    object-fit: cover;
+                    border-radius: 8px;
+                    display: block;
+                }
+                .member-name {
+                    margin-top: 10px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    color: #38bdf8;
+                }
+            </style>
+        </head>
+        <body>
+            <h3>Group Members</h3>
+            <div class="grid">
+    `;
 
-            for (var i = 0; i < imageNames.length; i++) {
-                var imagePath = window.location.origin + "/images/" + imageNames[i];
-                popUpHTML += `
-                    <div class="card">
-                        <img src="${imagePath}" alt="Member ${i + 1}">
-                    </div>
-                `;
-            }
+    // Loop through all 5 members and generate image + name card
+    for (var i = 0; i < members.length; i++) {
+        var imagePath = window.location.origin + "/images/" + members[i].file;
+        popUpHTML += `
+            <div class="card">
+                <img src="${imagePath}" alt="${members[i].name}">
+                <div class="member-name">${members[i].name}</div>
+            </div>
+        `;
+    }
 
-            popUpHTML += `</div></body></html>`;
-            myWindow.document.write(popUpHTML);
-        }
+    popUpHTML += `</div></body></html>`;
+    myWindow.document.write(popUpHTML);
+}
 
         // Get user input
         var input = prompt("Enter a number from 1 to 7:");
