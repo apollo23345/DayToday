@@ -95,21 +95,24 @@
 <!-- Background Audio Element -->
 <audio id="bgMusic" loop>
     <!-- Replace 'music.mp3' with your actual audio file name/path -->
-    <source src="music.mp3" type="audio/mpeg">
+    <source src="music/When-I-Was-A-Boy(chosic.com).mp3" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
     <script>
-// Audio Initialization
-    var bgMusic = document.getElementById("bgMusic");
-    if (bgMusic) {
+// Initialize audio
+var bgMusic = document.getElementById("bgMusic");
+
+function playAudio() {
+    if (bgMusic && bgMusic.paused) {
         bgMusic.volume = 0.3;
-        bgMusic.play().catch(function() {
-            // Autoplay blocked fallback
-            document.addEventListener('click', function() {
-                bgMusic.play();
-            }, { once: true });
+        bgMusic.play().catch(function(e) {
+            console.log("Audio play deferred until next interaction.");
         });
-    }        
+    }
+}
+
+// Start audio as soon as the user clicks anywhere on the page
+document.addEventListener('click', playAudio, { once: true });  
         function openGroupPictureWindow() {
             var myWindow = window.open("", "_blank", "width=800, height=650");
 
