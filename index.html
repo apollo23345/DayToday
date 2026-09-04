@@ -50,24 +50,22 @@ myWindow.document.write("</body></html>");
                 outputElement.textContent = "Today is Sunday";
                 break;
             default:
-                // Asterisk banner: "Hello, Love, Goodbye" across exactly 10 lines
-                var asteriskArt = 
-                    "*    * ***** *     *     ***    ,   *     ***  *   * ***** ,   ****  ***   ***  ***   ****  *   * *****\n" +
-                    "*    * *     *     *    *   *   ,   *    *   * *   * *     ,   *   **   * *   * *   * *   * *   * *\n" +
-                    "****** ****  *     *    *   *       *    *   * *   * ****      *   **   * *   * *   * *   *  ***  ****\n" +
-                    "****** ****  *     *    *   *       *    *   * *   * ****      **** *   * *   * *   * ****    *   ****\n" +
-                    "*    * *     *     *    *   *       *    *   * *   * *         *   **   * *   * *   * *   *   *   *\n" +
-                    "*    * *     *     *    *   *       *    *   *  * *  *         *   **   * *   * *   * *   *   *   *\n" +
-                    "*    * ***** ***** ***** ***        ****  ***    *   *****     ****  ***   ***   ***  ****    *   *****\n" +
-                    "                                                                                                       \n" +
-                    "                                                                                                       \n" +
-                    "                                                                                                       ";
+    // Exactly 10 lines of ASCII text
+    var asteriskArt = 
+        "*   * ***** *     *     ***   ,   *     ***  *   * ***** ,   ****  ***   ***  ***   ****  *   * *****\n" +
+        "*   * *     *     *    *   *  ,   *    *   * *   * *     ,   *   **   * *   * *   * *   * *   * *\n" +
+        "***** ****  *     *    *   *      *    *   * *   * ****      *   **   * *   * *   * ****   ***  ****\n" +
+        "***** ****  *     *    *   *      *    *   * *   * ****      **** *   * *   * *   * ****    *   ****\n" +
+        "*   * *     *     *    *   *      *    *   * *   * *         *   **   * *   * *   * *   *   *   *\n" +
+        "*   * *     *     *    *   *      *    *   *  * *  *         *   **   * *   * *   * *   *   *   *\n" +
+        "*   * ***** ***** ***** ***       ****  ***    *   *****     ****  ***   ***   ***  ****    *   *****\n" +
+        "                                                                                                   \n" +
+        "                                                                                                   \n" +
+        "                                                                                                   ";
 
-                outputElement.textContent = asteriskArt;
-
-                // Trigger new window popup with group picture
-                openGroupPictureWindow();
-                break;
+    outputElement.textContent = asteriskArt;
+    openGroupPictureWindow();
+    break;
         }
     </script>
 
