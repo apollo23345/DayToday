@@ -82,6 +82,16 @@
     color: #38bdf8;
     margin: 10px 0;
 }
+.mute-btn {
+    background: #475569;
+    color: #f8fafc;
+    margin-left: 10px;
+}
+
+.mute-btn:hover {
+    background: #64748b;
+    box-shadow: 0 6px 10px -1px rgba(100, 116, 139, 0.3);
+}
     </style>
 </head>
 <body>
@@ -91,6 +101,8 @@
     <pre id="output"></pre>
     
     <button onclick="location.reload();" class="reload-btn">Try Again</button>
+    <!-- Mute/Unmute Toggle Button -->
+    <button id="muteBtn" onclick="toggleAudio();" class="reload-btn mute-btn">🔊 Mute</button>
 </div>
 <!-- Background Audio Element -->
 <audio id="bgMusic" loop>
@@ -99,6 +111,22 @@
     Your browser does not support the audio element.
 </audio>
     <script>
+function toggleAudio() {
+    var bgMusic = document.getElementById("bgMusic");
+    var muteBtn = document.getElementById("muteBtn");
+
+    if (bgMusic.muted || bgMusic.paused) {
+        bgMusic.muted = false;
+        bgMusic.play();
+        muteBtn.textContent = "🔊 Mute";
+        muteBtn.style.background = "#475569";
+    } else {
+        bgMusic.muted = true;
+        muteBtn.textContent = "🔇 Unmute";
+        muteBtn.style.background = "#ef4444"; // Changes button color to red when muted
+    }
+}
+
 // Initialize audio
 var bgMusic = document.getElementById("bgMusic");
 
