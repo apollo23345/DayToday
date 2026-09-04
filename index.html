@@ -12,14 +12,16 @@
 
     <script>
         function openGroupPictureWindow() {
-            // Opens a new window with a placeholder image for group members
-            var myWindow = window.open("", "_blank", "width=600, height=400");
-            myWindow.document.write("<html><head><title>Group Members</title></head><body style='text-align:center;'>");
-           myWindow.document.write("<h3>Group Members</h3>");
-// Use a relative path starting with ./ or /
-myWindow.document.write("<img src='./images/Apollo_w_tie.png' alt='Group Members' style='max-width:100%; height:auto;'>");
-myWindow.document.write("</body></html>");
-        }
+    var myWindow = window.open("", "_blank", "width=600, height=400");
+    
+    // Builds the full URL (e.g., https://day-today-three.vercel.app/images/Apollo _w tie (3).png)
+    var imagePath = window.location.origin + "/images/Apollo_w_tie.png";
+
+    myWindow.document.write("<html><head><title>Group Members</title></head><body style='text-align:center;'>");
+    myWindow.document.write("<h3>Group Members</h3>");
+    myWindow.document.write("<img src='" + imagePath + "' alt='Group Members' style='max-width:100%; height:auto;'>");
+    myWindow.document.write("</body></html>");
+}
 
         // Get user input
         var input = prompt("Enter a number from 1 to 7:");
