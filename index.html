@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day of the Week Activity</title>
+</head>
+<body>
+
+    <h2>Day of the Week Finder</h2>
+    <p id="output" style="font-family: monospace; white-space: pre;"></p>
+
+    <script>
+        function openGroupPictureWindow() {
+            // Opens a new window with a placeholder image for group members
+            var myWindow = window.open("", "_blank", "width=600, height=400");
+            myWindow.document.write("<html><head><title>Group Members</title></head><body style='text-align:center;'>");
+            myWindow.document.write("<h3>Group Members</h3>");
+            // Replace the 'src' path below with your actual group picture file (e.g., 'group_picture.jpg')
+            myWindow.document.write("<img src='https://via.placeholder.com/500x300?text=Group+Members+Picture' alt='Group Members' style='max-width:100%; height:auto;'>");
+            myWindow.document.write("</body></html>");
+        }
+
+        // Get user input
+        var input = prompt("Enter a number from 1 to 7:");
+        var dayNumber = parseInt(input);
+        var outputElement = document.getElementById("output");
+
+        // Switch statement to handle day numbers
+        switch (dayNumber) {
+            case 1:
+                outputElement.textContent = "Today is Monday";
+                break;
+            case 2:
+                outputElement.textContent = "Today is Tuesday";
+                break;
+            case 3:
+                outputElement.textContent = "Today is Wednesday";
+                break;
+            case 4:
+                outputElement.textContent = "Today is Thursday";
+                break;
+            case 5:
+                outputElement.textContent = "Today is Friday";
+                break;
+            case 6:
+                outputElement.textContent = "Today is Saturday";
+                break;
+            case 7:
+                outputElement.textContent = "Today is Sunday";
+                break;
+            default:
+                // Asterisk banner: "Hello, Love, Goodbye" across exactly 10 lines
+                var asteriskArt = 
+                    "*    * ***** *     *     ***    ,   *     ***  *   * ***** ,   ****  ***   ***  ***   ****  *   * *****\n" +
+                    "*    * *     *     *    *   *   ,   *    *   * *   * *     ,   *   **   * *   * *   * *   * *   * *\n" +
+                    "****** ****  *     *    *   *       *    *   * *   * ****      *   **   * *   * *   * *   *  ***  ****\n" +
+                    "****** ****  *     *    *   *       *    *   * *   * ****      **** *   * *   * *   * ****    *   ****\n" +
+                    "*    * *     *     *    *   *       *    *   * *   * *         *   **   * *   * *   * *   *   *   *\n" +
+                    "*    * *     *     *    *   *       *    *   *  * *  *         *   **   * *   * *   * *   *   *   *\n" +
+                    "*    * ***** ***** ***** ***        ****  ***    *   *****     ****  ***   ***   ***  ****    *   *****\n" +
+                    "                                                                                                       \n" +
+                    "                                                                                                       \n" +
+                    "                                                                                                       ";
+
+                outputElement.textContent = asteriskArt;
+
+                // Trigger new window popup with group picture
+                openGroupPictureWindow();
+                break;
+        }
+    </script>
+
+</body>
+</html>
