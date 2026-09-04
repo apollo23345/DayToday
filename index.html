@@ -12,15 +12,28 @@
 
     <script>
 function openGroupPictureWindow() {
-    var myWindow = window.open("", "_blank", "width=600, height=400");
-    
-    // Builds the full URL (e.g., https://day-today-three.vercel.app/images/Apollo_w_tie.png)
-    var imagePath = window.location.origin + "/images/Apollo_w_tie.png";
+    var myWindow = window.open("", "_blank", "width=700, height=600");
 
-    myWindow.document.write("<html><head><title>Group Members</title></head><body style='text-align:center;'>");
+    // List all 5 image file names here (make sure these match your files in the /images/ folder)
+    var imageNames = [
+        "Apollo_w_tie.png",
+        "DelaCruz.png",
+        "Garcia.JPG",
+        "Marquez.png",
+        "Pili.png"
+    ];
+
+    myWindow.document.write("<html><head><title>Group Members</title></head><body style='text-align:center; font-family:sans-serif;'>");
     myWindow.document.write("<h3>Group Members</h3>");
-    myWindow.document.write("<img src='" + imagePath + "' alt='Group Members' style='max-width:100%; height:auto;'>");
-    myWindow.document.write("</body></html>");
+    myWindow.document.write("<div style='display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;'>");
+
+    // Loop through all 5 images
+    for (var i = 0; i < imageNames.length; i++) {
+        var imagePath = window.location.origin + "/images/" + imageNames[i];
+        myWindow.document.write("<img src='" + imagePath + "' alt='Member " + (i + 1) + "' style='width:180px; height:auto; border-radius:8px; object-fit:cover;'>");
+    }
+
+    myWindow.document.write("</div></body></html>");
 }
 
         // Get user input
