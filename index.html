@@ -15,10 +15,10 @@
             // Opens a new window with a placeholder image for group members
             var myWindow = window.open("", "_blank", "width=600, height=400");
             myWindow.document.write("<html><head><title>Group Members</title></head><body style='text-align:center;'>");
-            myWindow.document.write("<h3>Group Members</h3>");
-            // Replace the 'src' path below with your actual group picture file (e.g., 'group_picture.jpg')
-            myWindow.document.write("<img src='images/Apollo _w tie (3).png' alt='Group Members' style='max-width:100%; height:auto;'>");
-            myWindow.document.write("</body></html>");
+           myWindow.document.write("<h3>Group Members</h3>");
+// Use a relative path starting with ./ or /
+myWindow.document.write("<img src='./images/Apollo_w_tie.png' alt='Group Members' style='max-width:100%; height:auto;'>");
+myWindow.document.write("</body></html>");
         }
 
         // Get user input
